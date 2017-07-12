@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 1
+  bonus: MyText
+  apr: MyString
+  anual_fee: 1
+  credit_needed: MyString
+  balance_trancfer_apr: 1
+  balance_transfer_period: 1
+
+two:
+  name: MyString
+  type: 1
+  bonus: MyText
+  apr: MyString
+  anual_fee: 1
+  credit_needed: MyString
+  balance_trancfer_apr: 1
+  balance_transfer_period: 1
