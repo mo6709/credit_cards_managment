@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   resources :accounts
   resources :categories
   resources :card_bank_partners
