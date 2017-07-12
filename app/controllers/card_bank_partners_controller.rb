@@ -1,0 +1,2 @@
+class CardBankPartnersController < ApplicationController
+end
