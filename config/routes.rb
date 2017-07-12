@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+  #welcome
+  get 'welcome' => 'welcome#home'
+  
+  #sessions
+  get 'login' => 'sessions#new'
+  post 'sessions/create' => 'sessions#create'
+  delete 'sessions/destroy' => 'sessions#destroy'
+
   resources :accounts
   resources :categories
   resources :card_bank_partners
   resources :bank_partners
   resources :cards
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
