@@ -1,13 +1,13 @@
 <h1>Log In</h1>
 <%= form_tag(sessions_create_path, method: 'post') do%>
  <div class="field">
- 	<%= label_tag 'name' %>
- 	<%= text_field_tag 'name' %>
+ 	<%= label_tag 'user[email]', 'Email:' %>
+ 	<%= email_field_tag 'user[email]', @user.email %>
  </div>
 
  <div class="field">
- 	<%= label_tag 'password' %>
- 	<%= password_field_tag 'password' %>
+ 	<%= label_tag 'user[password]', 'Password:' %>
+ 	<%= password_field_tag 'user[password]' %>
  </div>
 
  <div class="action">
