@@ -3,16 +3,16 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
   
   #sessions
-  get 'login' => 'sessions#new'
-  post 'sessions/create' => 'sessions#create'
-  delete 'sessions/destroy' => 'sessions#destroy'
+  get '/login' => 'sessions#new'
+  post '/sessions/create' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
   resources :accounts
   resources :categories
   resources :card_bank_partners
   resources :bank_partners
   resources :cards
-  resources :users, :only => [:new, :show, :edit, :create, :update, :destroy]
+  resources :users, :only => [:new, :show, :edit, :create, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
