@@ -1,0 +1,23 @@
+<%= form_for @user do |user_builder|%>
+ <p>
+ 	<%= user_builder.label :name%>
+ 	<%= user_builder.text_field :name%>
+ </p>
+
+ <p>
+ 	<%= user_builder.label :email%>
+ 	<%= user_builder.text_field :email%>
+ </p>
+
+ <p>
+ 	<%= user_builder.label :password%>
+ 	<%= user_builder.password_field :password%>
+ </p>
+
+ <p>
+ 	<%= user_builder.label :password_confirmation%>
+ 	<%= user_builder.password_field :password_confirmation%>
+ </p>
+
+ <%= user_builder.submit %>
+<% end %>
