@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   #card
   resources :cards, :only => [:index, :show, :new, :edit, :create, :update]
-  get '/cards/index_type/:type' => 'cards#index_type', :as => 'index_type'
+  get '/cards/index_type/:type' => 'cards#index_type', :as => 'cards_index_type'
 
 
 
