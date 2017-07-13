@@ -7,12 +7,22 @@ Rails.application.routes.draw do
   post '/sessions/create' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  #card
+  resources :cards, :only => [:index, :show, :new, :edit, :create, :update]
+  get '/cards/index_type/:type' => 'cards#index_type', :as => 'index_type'
+
+
+
+  #user
+  resources :users, :only => [:new, :show, :edit, :create, :update]
+
+
   resources :accounts
   resources :categories
   resources :card_bank_partners
   resources :bank_partners
-  resources :cards
-  resources :users, :only => [:new, :show, :edit, :create, :update]
+  
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
