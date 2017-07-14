@@ -5,7 +5,7 @@ class CardsController < ApplicationController
 	end
     
 	def index_type
-		
+		@cards = Card.type(params[:type]) 
 	end
 
 	def show
