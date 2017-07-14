@@ -1,0 +1,5 @@
+<div class="indevidual_bank_aprtner">
+	<h3><%= bank_partner.name %></h3>
+	<%= render :partial => 'cards/cards', :locals => { :cards => bank_partner.cards}%>
+</div>
+

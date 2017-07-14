@@ -8,6 +8,7 @@ class BankPartnersController < ApplicationController
     end
 
     def show
+    	@bank_partner = BankPartner.find_by(:id => params[:id])
     end
 
     def edit
