@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714155214) do
+ActiveRecord::Schema.define(version: 20170714164720) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "account_number"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170714155214) do
     t.string   "apr"
     t.integer  "anual_fee"
     t.string   "credit_needed"
-    t.integer  "balance_trancfer_apr"
+    t.integer  "balance_transfer_apr"
     t.integer  "balance_transfer_period"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
