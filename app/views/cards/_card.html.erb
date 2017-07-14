@@ -1,0 +1,12 @@
+<div class="individual_card"> 
+	<p>name:<%= link_to(card.name, card.corp_url) %></p><br> 
+	<p>type: <%= link_to(card.c_type, cards_index_type(card.c_type)) %></p><br>
+	<p>bonus: <%= card.bonus %></p><br>
+	<p>apr: <%= card.apr %></p><br>
+	<p>anual fee: <%= card.anual_fee %></p><br>
+	<p>credit needed: <%= card.credit_needed %></p><br>
+	<p>balance transfer apr: <%= card.balance_transfer_apr %></p><br>
+	<p>balance transfer: <%= card.balance_transfer_period %></p><br>
+	<p>category: <%= link_to(card.category.name, category_path(card.category.id)) %></p><br>
+	<p>banks: <%= card.bank_partners.each{|b| link_to(b.name, bank_partner_path(b.id)) } %></p><br>
+</div>
