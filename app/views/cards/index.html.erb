@@ -1,0 +1,8 @@
+<div class="cards_list">
+	<ul>
+	 <% @cards.each do |card|%>
+	 <li><%= link_to(card.name, card_path(card.id))%> | 
+	 Bonus: <%= card.bonus %></li>
+	 <% end %>
+	</ul>
+</div>

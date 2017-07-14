@@ -1,15 +1,16 @@
 class CardsController < ApplicationController
 	#GET
-	def index_all
-		@cards = Card.all
+	def index
+		@cards = Card.all        
 	end
     
 	def index_type
-		@cards = Card.type(params[:type]) 
+		@cards = Card.type(params[:type])
+		render 'index' 
 	end
 
 	def show
-		@card = Card.find_by(params[:id]) 
+		@card = Card.find_by(params[:id]) 	
 	end
 
 	def new
