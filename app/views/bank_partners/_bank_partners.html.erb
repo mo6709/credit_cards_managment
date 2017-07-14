@@ -1,0 +1,10 @@
+<div class="banks_list">
+	<ul>
+	<% bank_partners.each do |bank_partner|%>
+        <li><%= bank_partner.name %></li>
+        <ul>
+        	<%= render :partial => 'cards/cards', :locals => { :cards => bank_partner.cards } %>
+        </ul>
+    <% end %>
+	</ul>
+</div>
