@@ -1,6 +1,6 @@
 class Card < ActiveRecord::Base
 	has_many :card_bank_partners
-	has_many :bank_partners, :through => :card_bank_partners
+	has_many :bank_partners, through: :card_bank_partners
 	belongs_to :category
 
 	enum :c_type => [:personal, :business]
@@ -10,4 +10,5 @@ class Card < ActiveRecord::Base
 			card.c_type == c_type
 		end
 	end
+
 end

@@ -7,6 +7,6 @@
 	<p>credit needed: <%= card.credit_needed %></p><br>
 	<p>balance transfer apr: <%= card.balance_transfer_apr %></p><br>
 	<p>balance transfer: <%= card.balance_transfer_period %></p><br>
-	<p>category: <%= link_to(card.category.name, category_path(card.category.id)) %></p><br>
-	<p>banks: <%= card.bank_partners.each{|b| link_to(b.name, bank_partner_path(b.id)) } %></p><br>
+	<p>category: <%= link_to(card.category.title, category_path(card.category.id)) %></p><br>
+	<p>banks: <%= links_for_bank_partners(card) %></p><br>
 </div>

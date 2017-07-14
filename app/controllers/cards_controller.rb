@@ -9,7 +9,7 @@ class CardsController < ApplicationController
 	end
 
 	def show
-		
+		@card = Card.find_by(params[:id]) 
 	end
 
 	def new
