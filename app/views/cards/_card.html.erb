@@ -1,6 +1,6 @@
 <div class="individual_card"> 
 	<p>name:<%= link_to(card.name, card.corp_url) %></p><br> 
-	<p>type: <%= link_to(card.c_type, cards_index_type(card.c_type)) %></p><br>
+	<p>type: <%= link_to(card.c_type, cards_index_type_path(card.c_type)) %></p><br>
 	<p>bonus: <%= card.bonus %></p><br>
 	<p>apr: <%= card.apr %></p><br>
 	<p>anual fee: <%= card.anual_fee %></p><br>
