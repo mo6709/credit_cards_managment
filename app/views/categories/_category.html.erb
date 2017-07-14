@@ -1,0 +1,4 @@
+<div class="indevidual_category">
+	 <h1><%= category.title %></h1>
+     <%= render :partial => 'cards/cards', :locals => { :cards => category.cards }%>
+</div>

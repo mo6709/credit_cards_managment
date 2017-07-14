@@ -1,0 +1,10 @@
+<div class="categoris_list">
+    <ul>
+		<% categories.each do |category|%>
+	    <li>
+	        <%= link_to(category.title, category_path(category.id)) %>
+	    	<%= render :partial => 'cards/cards', :locals => { :cards => category.cards }%>
+	    </li>
+		<% end %>
+	</ul>
+</div>
