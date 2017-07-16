@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   #user
   resources :users, :only => [:new, :show, :edit, :create, :update]
 
+  resources :users do
+    resources :accounts
+  end
 
-  resources :accounts
+
   resources :categories
   resources :card_bank_partners
   resources :bank_partners
