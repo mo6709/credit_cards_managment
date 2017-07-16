@@ -1,7 +1,9 @@
 class AccountsController < ApplicationController
+	before_action :require_login
+
 	#GET
 	def index
-		if params[:user_id]
+		if params[:user_id] == current_user.id
 			@user = User.find_by(:id => params[:user_id])
 			if @user.nil?
 				redirect_to login_path, :alert => "Login required"
@@ -15,7 +17,7 @@ class AccountsController < ApplicationController
 		if params[:user_id] && !User.exists?(params[:user_id])
 			redirect_to login_path, :alert => "Login required"
 		else
-			@account = Account.new(:user_id => params[:user_id])
+			@account = Account.new
 		end
 	end
 
@@ -29,6 +31,7 @@ class AccountsController < ApplicationController
 
 	#POST
 	def create
+		raise params.inspect
 		
 	end
 
@@ -39,13 +42,10 @@ class AccountsController < ApplicationController
 	def destroy
 		
 	end
-end
 
-         user_accounts GET    /users/:user_id/accounts(.:format)          accounts#index
-                       POST   /users/:user_id/accounts(.:format)          accounts#create
-      new_user_account GET    /users/:user_id/accounts/new(.:format)      accounts#new
-     edit_user_account GET    /users/:user_id/accounts/:id/edit(.:format) accounts#edit
-          user_account GET    /users/:user_id/accounts/:id(.:format)      accounts#show
-                       PATCH  /users/:user_id/accounts/:id(.:format)      accounts#update
-                       PUT    /users/:user_id/accounts/:id(.:format)      accounts#update
-                       DELETE /users/:user_id/accounts/:id(.:format)      accounts#destroy
+	private 
+
+	def accounts_params
+		params.require(:accounts).premit(:account_number, :credit_line, :due_date, :open_date)
+	end
+end
