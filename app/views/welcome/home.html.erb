@@ -1,2 +1,2 @@
 <h1>Wlcome to credit card managment</h1>
-<%= render 'cards/index_cards'%>
+<%= render :partial => 'cards/cards', :locals => { :cards => Card.all }%>
