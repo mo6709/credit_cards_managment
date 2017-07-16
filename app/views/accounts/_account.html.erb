@@ -1,0 +1,7 @@
+<div class="indevidual_account">
+	<p>Account number: <%= account.account_number %></p>
+	<p>Card: <%= link_to(account.card.name, card_path(account.card.id))%></p>
+	<p>Credit line: $ <%= account.credit_line.to_s %></p>
+	<p>Due date: <%= account.due_date.strftime("On the %-d") %></p>
+	<p>Open date: <%= account.open_date.strftime("%B %d, %Y") %></p>
+</div>
