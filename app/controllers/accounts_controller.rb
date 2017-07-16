@@ -22,7 +22,12 @@ class AccountsController < ApplicationController
 	end
 
 	def show
-		
+		user = User.find_by(:id => params[:user_id])
+		if user && user.account_ids.include?(params[:id].to_i)
+			@account = Account.find_by(:id => params[:id])
+		else
+			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and logged in"
+		end
 	end
 
 	def edit
@@ -33,7 +38,7 @@ class AccountsController < ApplicationController
 	def create 
         @account = Account.create(account_params)
         if @account.save
-        	redirect_to account_path(@account.id)
+        	redirect_to user_account_path(@account.user_id, @account.id), :alert => "Your account was created successfuly."
         else
         	render :new
         end
@@ -50,6 +55,6 @@ class AccountsController < ApplicationController
 	private 
 
 	def account_params
-		params.require(:account).permit(:user_id, :account_number, :credit_line, :due_date, :open_date)
+		params.require(:account).permit(:user_id, :card_id, :account_number, :credit_line, :due_date, :open_date)
 	end
 end
