@@ -1,5 +1,8 @@
 <div class="account_form">
 	<%= form_for(account) do |account_builder|%>
+	  <input type="hidden" name="account[user_id]", value="<%= account.user_id%>">
+	  <p><%= account_builder.label "Select Card:" %></p>
+	  <p><%= collection_select(:account, :card_id, Card.all, :id, :name, { :include_blank => true}) %></p>
 	  <p><%= account_builder.label :account_number %></p>
 	  <p><%= account_builder.text_field :account_number%></p>
 	  <p><%= account_builder.label :credit_line %></p>
