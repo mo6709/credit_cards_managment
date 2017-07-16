@@ -31,7 +31,12 @@ class AccountsController < ApplicationController
 	end
 
 	def edit
-		
+		user = User.find_by(:id => params[:user_id])
+		if user && user.account_ids.include?(params[:id].to_i)
+			@account = Account.find_by(:id => params[:id])
+		else
+			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and logged in"
+		end
 	end
 
 	#POST
@@ -45,7 +50,13 @@ class AccountsController < ApplicationController
 	end
 
 	def update
-		
+		@account = Account.find_by(:id => params[:id])
+		@account.update(account_params)
+		if @account.save
+			redirect_to user_account_path(@account.user_id, @account.id), :alert => "Your account was edited successfuly."
+		else
+			render :edit
+		end
 	end
 
 	def destroy
