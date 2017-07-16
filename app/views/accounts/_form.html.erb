@@ -1,5 +1,5 @@
 <div class="account_form">
-	<%= form_for(account, url: "/users/#{account.user_id}/accounts") do |account_builder|%>
+	<%= form_for(account) do |account_builder|%>
 	  <p><%= account_builder.label :account_number %></p>
 	  <p><%= account_builder.text_field :account_number%></p>
 	  <p><%= account_builder.label :credit_line %></p>
