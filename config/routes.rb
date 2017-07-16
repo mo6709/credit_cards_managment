@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :accounts
   end
 
+#account 
+  resources :accounts
 
   resources :categories
   resources :card_bank_partners
