@@ -4,16 +4,19 @@ class AccountsController < ApplicationController
 		if params[:user_id]
 			@user = User.find_by(:id => params[:user_id])
 			if @user.nil?
-				redirect_to login_path
+				redirect_to login_path, :alert => "Login required"
 			else
 				@accounts = @user.accounts
 			end
-		else
 		end
 	end
 
 	def new
-		@account = Account.new
+		if params[:user_id] && !User.exists?(params[:user_id])
+			redirect_to login_path, :alert => "Login required"
+		else
+			@account = Account.new(:user_id => params[:user_id])
+		end
 	end
 
 	def show
