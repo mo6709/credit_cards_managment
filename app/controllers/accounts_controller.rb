@@ -16,14 +16,16 @@ class AccountsController < ApplicationController
 	def new
 		if params[:user_id] && !User.exists?(params[:user_id])
 			redirect_to login_path, :alert => "Login required"
-		else
+		elsif params[:user_id] == current_user.id
 			@account = Account.new(:user_id => current_user.id)
+		else
+			redirect_to login_path, :alert => "Login required" 
 		end
 	end
 
 	def show
 		user = User.find_by(:id => params[:user_id])
-		if user && user.account_ids.include?(params[:id].to_i)
+		if (user == current_user) && (user.account_ids.include?(params[:id].to_i))
 			@account = Account.find_by(:id => params[:id])
 		else
 			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and logged in"
@@ -32,7 +34,7 @@ class AccountsController < ApplicationController
 
 	def edit
 		user = User.find_by(:id => params[:user_id])
-		if user && user.account_ids.include?(params[:id].to_i)
+		if (user == current_user)  && (user.account_ids.include?(params[:id].to_i))
 			@account = Account.find_by(:id => params[:id])
 		else
 			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and logged in"
@@ -57,10 +59,6 @@ class AccountsController < ApplicationController
 		else
 			render :edit
 		end
-	end
-
-	def destroy
-		
 	end
 
 	private 
