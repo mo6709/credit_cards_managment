@@ -19,6 +19,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :accounts
   end
+  
+  #admin
+  scope '/admin', module: 'admin' do
+    resources :accounts, 
+    resources :cards
+    resources :bank_partners
+  end
 
 #account 
   resources :accounts
