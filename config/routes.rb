@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   
   #admin
   scope '/admin', module: 'admin' do
-    resources :accounts, 
+    resources :accounts 
     resources :cards
     resources :bank_partners
   end
