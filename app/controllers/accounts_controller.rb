@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
 
 	#GET
 	def index
-		if params[:user_id] == current_user.id
+		if params[:user_id].to_i == current_user.id
 			@user = User.find_by(:id => params[:user_id])
 			if @user.nil?
 				redirect_to login_path, :alert => "Login required"
