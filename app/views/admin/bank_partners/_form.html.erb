@@ -1,0 +1,27 @@
+<div class="bank_partner_form">
+	<%= form_for([:admin, @bank_partner]) do |b_p_builder|%>
+
+	  <div class="field">
+	     <%= b_p_builder.label :name, "Bank Partner Name:" %>
+	     <%= b_p_builder.text_field :name %>
+	  </div>
+
+	  <div class="field">
+	    <%= b_p_builder.label "Select the Associated Cards" %><br>
+	  	<%= b_p_builder.collection_check_boxes(:card_ids, Card.all, :id, :name)  do |box| %>
+	  	  <%= box.label class: "label_checkbox" do %>
+	  	   <%= box.check_box + box.text %>
+	  	  <% end %>
+	  	<% end %>
+
+
+	  	<%= b_p_builder.fields_for(:cards, Card.new,) do |card_form| %>
+	  	<p>Add a new card:</p>
+	  	<%= card_form.label :name, "Card Name:" %>
+	  	<%= card_form.text_field :name %>
+	  	<% end %>
+	  </div>
+
+      <%= b_p_builder.submit %>
+	<% end %>
+</div>
