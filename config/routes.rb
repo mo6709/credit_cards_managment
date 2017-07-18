@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   
   #admin
-  scope '/admin', module: 'admin' do
+ namespace 'admin' do
     resources :accounts 
     resources :cards
     resources :bank_partners

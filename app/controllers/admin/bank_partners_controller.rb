@@ -1,11 +1,12 @@
 class Admin::BankPartnersController < ApplicationController
+	before_action :admin_access
 	#GET
 	def index
-		
+		@bank_partners = BankPartner.all
 	end
 
 	def new
-		
+		@bank_partner = BankPartner.new
 	end
 
 	def edit
@@ -19,7 +20,8 @@ class Admin::BankPartnersController < ApplicationController
     #POST
 
     def create
-    	
+    	@bank_partner = BankPartner.create(bank_partner_params)
+    	raise @bank_partner.inspect
     end
 
     def update
@@ -30,5 +32,9 @@ class Admin::BankPartnersController < ApplicationController
     	
     end
 
+    private 
+    def bank_partner_params
+    	params.require(:bank_partner).permit(:name, :card_ids => [], :cards_attributes => [:name])
+    end
 
 end
