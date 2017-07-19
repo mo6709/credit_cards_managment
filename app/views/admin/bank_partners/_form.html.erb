@@ -1,27 +1,55 @@
 <div class="bank_partner_form">
 	<%= form_for([:admin, @bank_partner]) do |b_p_builder|%>
 
-	  <div class="field">
-	     <%= b_p_builder.label :name, "Bank Partner Name:" %>
-	     <%= b_p_builder.text_field :name %>
-	  </div>
+	<div class="field">
+		<%= b_p_builder.label :name, "Bank Partner Name:" %>
+		<%= b_p_builder.text_field :name %>
+	</div>
 
-	  <div class="field">
-	    <%= b_p_builder.label "Select the Associated Cards" %><br>
-	  	<%= b_p_builder.collection_check_boxes(:card_ids, Card.all, :id, :name)  do |box| %>
-	  	  <%= box.label class: "label_checkbox" do %>
-	  	   <%= box.check_box + box.text %>
-	  	  <% end %>
-	  	<% end %>
+	<div class="field">
+	    <%= b_p_builder.label "Select Associated Cards" %><br>
+		<%= b_p_builder.collection_check_boxes(:card_ids, Card.all, :id, :name)  do |box| %>
+		  <%= box.label class: "label_checkbox" do %>
+		   <%= box.check_box + box.text %>
+		  <% end %>
+		<% end %>
 
+	    <div class="bank_partner_new_cards">
+		    <p>Add a new card</p>
+		  	<%= b_p_builder.fields_for(:cards, @card) do |card_form| %>
+		  	<%= card_form.label :name, "Card Name:" %>
+		  	<%= card_form.text_field :name %><br>
 
-	  	<%= b_p_builder.fields_for(:cards, Card.new,) do |card_form| %>
-	  	<p>Add a new card:</p>
-	  	<%= card_form.label :name, "Card Name:" %>
-	  	<%= card_form.text_field :name %>
-	  	<% end %>
-	  </div>
+		  	<%= card_form.label :credit_needed, "Credit Needed:" %>
+		  	<%= card_form.text_field :credit_needed %><br>
 
-      <%= b_p_builder.submit %>
+		  	<%= card_form.label "Business Card:" %>
+		  	<%= card_form.check_box :c_type %><br>
+
+		  	<%= card_form.label :bonus, "Bonus Info:" %><br>
+		  	<%= card_form.text_area :bonus %><br>
+
+		  	<%= card_form.label :apr, "APR Raite:" %>
+		  	<%= card_form.text_field :apr %><br>
+
+		  	<%= card_form.label :balance_transfer_apr,  "Balance Transfer APR %:"%>
+		  	<%= card_form.number_field :balance_transfer_apr %><br>
+
+		  	<%= card_form.label :balance_transfer_period, "Balance Transfer Period (Months):"%>
+		  	<%= card_form.number_field :balance_transfer_period %><br>
+
+		  	<%= card_form.label :anual_fee, "Anual Fee $"%>
+		  	<%= card_form.number_field :anual_fee %><br>
+
+		  	<%= card_form.label :corp_url, "Corp URL:" %><br>
+		  	<%= card_form.text_area :corp_url %><br>
+		    
+		    <%= card_form.label :category, "Select Category:"%>
+		  	<%= card_form.collection_select(:category_id, Category.all, :id, :title, :include_blank => true ) %><br>
+		  	<% end %>
+		</div>
+	</div>	
+
+    <%= b_p_builder.submit %>
 	<% end %>
 </div>
