@@ -1,7 +1,2 @@
 <h1>Add a New Card</h1>
-<div class="new_card_form">
-  	<%= form_for([:admin, @card]) do |card_builder| %>
-  	<%= render :partial => 'card_fields', :locals => { :builder => card_builder }%>
-  	<%= card_builder.submit %>
-  	<% end %>
-</div>
+<%= render :partial => 'form', :locals => { :card => @card }%> 
