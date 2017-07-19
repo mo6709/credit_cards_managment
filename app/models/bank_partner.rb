@@ -7,6 +7,15 @@ class BankPartner < ActiveRecord::Base
 	  		if attributes[:name].present?
 		  		card = Card.find_or_create_by(:name => attributes[:name])
 		  		if !self.cards.include?(card)
+                    attributes.each do |key, val|
+                    	if key == "c_type"
+                    		i_val = val.to_i
+                    		card.send(("#{key}="), i_val)
+                    	else
+                    	    card.send(("#{key}="), val)
+                        end
+                    end
+                    card.save
 		  		    self.card_bank_partners.build(:card => card)
 		  		    self.save
 		  		end
