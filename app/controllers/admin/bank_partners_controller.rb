@@ -1,5 +1,5 @@
 class Admin::BankPartnersController < ApplicationController
-	before_action :admin_access
+	before_action :admin_access, :find_bank_partner
 	#GET
 	def index
 		@bank_partners = BankPartner.all
@@ -11,7 +11,7 @@ class Admin::BankPartnersController < ApplicationController
 	end
 
 	def edit
-		
+		@bank_partner = BankPartner.find_by(:id => params[:id])
 	end
     
     def show
@@ -30,11 +30,22 @@ class Admin::BankPartnersController < ApplicationController
     end
 
     def update
-    	
+    	@bank_partner = BankPartner.find_by(:id => params[:id])
+    	@bank_partner.update(bank_partner_params)
+    	if @bank_partner.valid?
+    		   redirect_to admin_bank_partner_path(@bank_partner.id), alert: 'Bank Partner was successfully updated'
+    	else
+    		render 'edit'
+    	end
     end
 
     def destroy
-    	
+    	@bank_partner = BankPartner.find_by(:id => params[:id])
+    	@bank_partner.delete
+    end
+    
+    def find_bank_partner
+    	@bank_partner = BankPartner.find_by(:id => params[:id])
     end
 
     private 
