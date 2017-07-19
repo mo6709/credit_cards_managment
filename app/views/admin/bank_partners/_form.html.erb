@@ -16,33 +16,33 @@
 
 	    <div class="bank_partner_new_cards">
 		    <p>Add a new card</p>
-		  	<%= b_p_builder.fields_for(:cards, @card) do |card_form| %>
-		  	<%= card_form.label :name, "Card Name:" %>
-		  	<%= card_form.text_field :name %><br>
+		  	<%= b_p_builder.fields_for(:cards, @card) do |card_builder| %>
+		  	<%= card_builder.label :name, "Card Name:" %>
+		  	<%= card_builder.text_field :name %><br>
 
-		  	<%= card_form.label :credit_needed, "Credit Needed:" %>
-		  	<%= card_form.text_field :credit_needed %><br>
+		  	<%= card_builder.label :credit_needed, "Credit Needed:" %>
+		  	<%= card_builder.text_field :credit_needed %><br>
 
-		  	<%= card_form.label "Business Card:" %>
-		  	<%= card_form.check_box :c_type %><br>
+		  	<%= card_builder.label "Business Card:" %>
+		  	<%= card_builder.check_box :c_type %><br>
 
-		  	<%= card_form.label :bonus, "Bonus Info:" %><br>
-		  	<%= card_form.text_area :bonus %><br>
+		  	<%= card_builder.label :bonus, "Bonus Info:" %><br>
+		  	<%= card_builder.text_area :bonus %><br>
 
-		  	<%= card_form.label :apr, "APR Raite:" %>
-		  	<%= card_form.text_field :apr %><br>
+		  	<%= card_builder.label :apr, "APR Raite:" %>
+		  	<%= card_builder.text_field :apr %><br>
 
-		  	<%= card_form.label :balance_transfer_apr,  "Balance Transfer APR %:"%>
-		  	<%= card_form.number_field :balance_transfer_apr %><br>
+		  	<%= card_builder.label :balance_transfer_apr,  "Balance Transfer APR %:"%>
+		  	<%= card_builder.number_field :balance_transfer_apr %><br>
 
-		  	<%= card_form.label :balance_transfer_period, "Balance Transfer Period (Months):"%>
-		  	<%= card_form.number_field :balance_transfer_period %><br>
+		  	<%= card_builder.label :balance_transfer_period, "Balance Transfer Period (Months):"%>
+		  	<%= card_builder.number_field :balance_transfer_period %><br>
 
-		  	<%= card_form.label :anual_fee, "Anual Fee $"%>
-		  	<%= card_form.number_field :anual_fee %><br>
+		  	<%= card_builder.label :anual_fee, "Anual Fee $"%>
+		  	<%= card_builder.number_field :anual_fee %><br>
 
-		  	<%= card_form.label :corp_url, "Corp URL:" %><br>
-		  	<%= card_form.text_area :corp_url %><br>
+		  	<%= card_builder.label :corp_url, "Corp URL:" %><br>
+		  	<%= card_builder.text_area :corp_url %><br>
 		    
 		    <%= card_form.label :category, "Select Category:"%>
 		  	<%= card_form.collection_select(:category_id, Category.all, :id, :title, :include_blank => true ) %><br>
