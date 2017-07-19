@@ -44,8 +44,8 @@
 		  	<%= card_builder.label :corp_url, "Corp URL:" %><br>
 		  	<%= card_builder.text_area :corp_url %><br>
 		    
-		    <%= card_form.label :category, "Select Category:"%>
-		  	<%= card_form.collection_select(:category_id, Category.all, :id, :title, :include_blank => true ) %><br>
+		    <%= card_builder.label :category, "Select Category:"%>
+		  	<%= card_builder.collection_select(:category_id, Category.all, :id, :title, :include_blank => true ) %><br>
 		  	<% end %>
 		</div>
 	</div>	
