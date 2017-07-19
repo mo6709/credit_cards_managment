@@ -1,5 +1,6 @@
 class Admin::BankPartnersController < ApplicationController
-	before_action :admin_access, :find_bank_partner, only => [:edit, :show, :update, :destroy]
+	before_action :admin_access 
+	before_action :find_bank_partner, :only => [:edit, :show, :update, :destroy]
 	#GET
 	def index
 		@bank_partners = BankPartner.all
