@@ -1,5 +1,5 @@
 class Admin::BankPartnersController < ApplicationController
-	before_action :admin_access, :find_bank_partner
+	before_action :admin_access, :find_bank_partner, only => [:edit, :show, :update, :destroy]
 	#GET
 	def index
 		@bank_partners = BankPartner.all
@@ -11,15 +11,12 @@ class Admin::BankPartnersController < ApplicationController
 	end
 
 	def edit
-		@bank_partner = BankPartner.find_by(:id => params[:id])
 	end
     
     def show
-    	@bank_partner = BankPartner.find_by(:id => params[:id])
     end
 
     #POST
-
     def create
     	@bank_partner = BankPartner.create(bank_partner_params)
     	if @bank_partner.valid?
@@ -40,7 +37,6 @@ class Admin::BankPartnersController < ApplicationController
     end
 
     def destroy
-    	@bank_partner = BankPartner.find_by(:id => params[:id])
     	@bank_partner.delete
     end
     
