@@ -1,0 +1,49 @@
+<div class="field">
+	<%= builder.label :name, "Card Name:" %>
+	<%= builder.text_field :name %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :credit_needed, "Credit Needed:" %>
+	<%= builder.text_field :credit_needed %><br>
+</div>
+
+<div class="field">
+	<%= builder.label "Business Card:" %>
+	<%= builder.check_box :c_type %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :bonus, "Bonus Info:" %><br>
+	<%= builder.text_area :bonus %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :apr, "APR Raite:" %>
+	<%= builder.text_field :apr %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :balance_transfer_apr,  "Balance Transfer APR %:"%>
+	<%= builder.number_field :balance_transfer_apr %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :balance_transfer_period, "Balance Transfer Period (Months):"%>
+	<%= builder.number_field :balance_transfer_period %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :anual_fee, "Anual Fee $"%>
+	<%= builder.number_field :anual_fee %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :corp_url, "Corp URL:" %><br>
+	<%= builder.text_area :corp_url %><br>
+</div>
+
+<div class="field">
+	<%= builder.label :category, "Select Category:"%>
+	<%= builder.collection_select(:category_id, Category.all, :id, :title, :include_blank => true ) %><br>
+</div>
