@@ -1,6 +1,6 @@
 class Admin::CardsController < ApplicationController
     before_action :admin_access
-    before_action :find_card, :only => [:edit, :update, :show] 
+    before_action :find_card, :only => [:edit, :update, :show, :destroy] 
 	#GET
 	def index
         @cards = Card.all
