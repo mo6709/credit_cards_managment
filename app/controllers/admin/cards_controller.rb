@@ -1,5 +1,6 @@
 class Admin::CardsController < ApplicationController
-    before_action :admin_access 
+    before_action :admin_access
+    before_action :find_card, :only => [:edit, :update, :show] 
 	#GET
 	def index
         @cards = Card.all
@@ -13,6 +14,7 @@ class Admin::CardsController < ApplicationController
 	end
     
     def show
+
     end
 
     #POST
@@ -27,5 +29,9 @@ class Admin::CardsController < ApplicationController
 
     def destroy
     	
+    end
+
+    def find_card
+    	@card = Card.find_by(:id => params[:id])
     end
 end
