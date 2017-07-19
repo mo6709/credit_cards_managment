@@ -1,4 +1,5 @@
-class Admin::CardsController < ApplicationController	
+class Admin::CardsController < ApplicationController
+    before_action :admin_access 
 	#GET
 	def index
         @cards = Card.all
@@ -9,11 +10,9 @@ class Admin::CardsController < ApplicationController
 	end
 
 	def edit
-		
 	end
     
     def show
-    	
     end
 
     #POST
