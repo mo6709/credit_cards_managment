@@ -27,8 +27,9 @@ Rails.application.routes.draw do
     resources :bank_partners
   end
 
-#account 
+  #account 
   resources :accounts
+  get '/users/:user_id/cards/:card_id/accounts/new' => 'accounts#new', :as =>'new_user_account_with_card'
 
   resources :categories
   resources :card_bank_partners
