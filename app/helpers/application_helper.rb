@@ -21,7 +21,6 @@ module ApplicationHelper
   end
 
   def admin_buttons_for(element)
-
     if current_user.try(:admin)
       if element.instance_of?(Card)
          return [button_to("Edit", edit_admin_card_path(element.id), method: :get),
@@ -30,8 +29,15 @@ module ApplicationHelper
           return [button_to("Edit", edit_admin_bank_partner_path(element.id), method: :get),
                  button_to("Delete", "/admin/bank_partners/#{element.id}", method: :delete)].join.html_safe
       end
+    end    
+  end
+
+  def add_card(card)
+    if logged_in? && !current_user.admin
+      if !current_user.cards.include?(card)
+        button_to("Get this card", new_user_account_with_card_path(current_user.id, card.id), method: :get)
+      end
     end
-      
   end
 
 end
