@@ -5,6 +5,7 @@
 	 <%= link_to(card.c_type, cards_index_type_path(card.c_type)) %> |
 	 Bonus: <%= card.bonus %> |
 	 <%= admin_buttons_for(card) %>
+	 <%= add_card(card)%>
 	 </li>
 	 <% end %>
 	</ul>
