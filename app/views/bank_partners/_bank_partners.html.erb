@@ -1,7 +1,9 @@
 <div class="banks_list">
 	<ul>
 	<% bank_partners.each do |bank_partner|%>
-        <li><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id)) %></li>
+        <li><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id)) %> |
+            <%= admin_buttons_for(bank_partner) %>
+        </li>
         <ul>
         	<%= render :partial => 'cards/cards', :locals => { :cards => bank_partner.cards } %>
         </ul>
