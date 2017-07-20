@@ -14,21 +14,18 @@ class Admin::CardsController < ApplicationController
 	end
     
     def show
-
     end
 
     #POST
-
-    def create
-    	
+    def create	
     end
 
     def update
-    	
     end
 
-    def destroy
-    	
+    def destroy 
+        card = @card.delete
+        redirect_to admin_cards_path, :alert => "Succssesfuly removed #{card.name}"	
     end
 
     def find_card

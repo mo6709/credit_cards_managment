@@ -38,7 +38,8 @@ class Admin::BankPartnersController < ApplicationController
     end
 
     def destroy
-    	@bank_partner.delete
+    	bank_partner = @bank_partner.delete
+        redirect_to admin_bank_partners_path, :alert => "successfully removed #{bank_partner.name}"
     end
     
     def find_bank_partner
