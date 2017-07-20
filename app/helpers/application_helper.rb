@@ -20,4 +20,18 @@ module ApplicationHelper
   	end
   end
 
+  def admin_buttons_for(element)
+
+    if current_user.try(:admin)
+      if element.instance_of?(Card)
+         return [button_to("Edit", edit_admin_card_path(element.id), method: :get),
+                 button_to("Delete", "/admin/cards/#{element.id}", method: :delete)].join.html_safe
+      elsif element.instance_of?(BankPartner)
+          return [button_to("Edit", edit_admin_bank_partner_path(element.id), method: :get),
+                 button_to("Delete", "/admin/bank_partners/#{element.id}", method: :delete)].join.html_safe
+      end
+    end
+      
+  end
+
 end
