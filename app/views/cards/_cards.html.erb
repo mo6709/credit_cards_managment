@@ -3,7 +3,9 @@
 	 <% cards.each do |card|%>
 	 <li><%= link_to(card.name, card_path(card.id))%> | 
 	 <%= link_to(card.c_type, cards_index_type_path(card.c_type)) %> |
-	 Bonus: <%= card.bonus %></li>
+	 Bonus: <%= card.bonus %> |
+	 <%= admin_buttons_for(card) %>
+	 </li>
 	 <% end %>
 	</ul>
 </div>

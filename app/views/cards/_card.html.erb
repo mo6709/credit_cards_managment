@@ -9,4 +9,5 @@
 	<p>balance transfer: <%= card.balance_transfer_period %></p><br>
 	<p>category: <%= link_to(card.category.title, category_path(card.category.id)) %></p><br>
 	<p>banks: <%= links_for_bank_partners(card) %></p><br>
+	<%= admin_buttons_for(card) %>
 </div>
