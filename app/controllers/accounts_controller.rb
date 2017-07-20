@@ -5,21 +5,18 @@ class AccountsController < ApplicationController
 	def index
 		if params[:user_id].to_i == current_user.id
 			@user = User.find_by(:id => params[:user_id])
-			if @user.nil?
-				redirect_to login_path, :alert => "Login required"
-			else
-				@accounts = @user.accounts
-			end
+			@accounts = @user.accounts
+		else
+			@user = User.find_by(:id => current_user.id)
+			@accounts = @user.accounts
 		end
 	end
 
 	def new
-		if params[:user_id] && !User.exists?(params[:user_id])
-			redirect_to login_path, :alert => "Login required"
-		elsif params[:user_id] == current_user.id
+		if params[:user_id] == current_user.id
 			@account = Account.new(:user_id => current_user.id)
 		else
-			redirect_to login_path, :alert => "Login required" 
+			redirect_to root_path, :alert => "Access for account onwes only" 
 		end
 	end
 
@@ -28,7 +25,7 @@ class AccountsController < ApplicationController
 		if (user == current_user) && (user.account_ids.include?(params[:id].to_i))
 			@account = Account.find_by(:id => params[:id])
 		else
-			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and logged in"
+			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and loggedin as the owner"
 		end
 	end
 
@@ -37,7 +34,7 @@ class AccountsController < ApplicationController
 		if (user == current_user)  && (user.account_ids.include?(params[:id].to_i))
 			@account = Account.find_by(:id => params[:id])
 		else
-			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and logged in"
+			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and loggedin as the owner"
 		end
 	end
 
