@@ -1,0 +1,6 @@
+<div class="bank_partner_new_card_form">
+    <p>Add a new card</p>
+  	<%= builder.fields_for(:cards, Card.new) do |card_builder| %>
+  	<%= render :partial => 'admin/cards/card_fields', :locals => { :builder => card_builder }%>
+  	<% end %>
+</div>
