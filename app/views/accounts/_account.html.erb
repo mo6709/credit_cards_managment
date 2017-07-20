@@ -4,4 +4,5 @@
 	<p>Credit line: $ <%= account.credit_line.to_s %></p>
 	<p>Due date: <%= account.due_date.strftime("On the %-d") %></p>
 	<p>Open date: <%= account.open_date.strftime("%B %d, %Y") %></p>
+	<%= loggedin_buttons_for(account) %>
 </div>
