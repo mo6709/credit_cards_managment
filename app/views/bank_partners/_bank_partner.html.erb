@@ -1,5 +1,6 @@
 <div class="indevidual_bank_aprtner">
-	<h3><%= bank_partner.name %></h3>
+	<h3><%= bank_partner.name %></h3> 
+	<%= admin_buttons_for(bank_partner) %>
 	<%= render :partial => 'cards/cards', :locals => { :cards => bank_partner.cards}%>
 </div>
 
