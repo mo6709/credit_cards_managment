@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
 
 	#GET
 	def index
-		@user = User.find_by(:id => params[:user_id])
+		@user = current_user
 		@accounts = @user.accounts
 	end
 
