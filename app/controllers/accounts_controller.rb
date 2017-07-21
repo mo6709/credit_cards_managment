@@ -1,33 +1,25 @@
 class AccountsController < ApplicationController
-	before_action :require_login
+	before_action :require_login, :owner_access
 
 	#GET
 	def index
-		if params[:user_id].to_i == current_user.id
-			@user = User.find_by(:id => params[:user_id])
-			@accounts = @user.accounts
-		else
-			@user = User.find_by(:id => current_user.id)
-			@accounts = @user.accounts
-		end
+		@user = User.find_by(:id => params[:user_id])
+		@accounts = @user.accounts
 	end
 
 	def new
-		if (params[:user_id].to_i == current_user.id) && (params[:card_id])
+		if params[:card_id]
 			@account = Account.new(:user_id => current_user.id, :card_id => params[:card_id])
-		elsif params[:user_id].to_i == current_user.id
-			@account = Account.new(:user_id => current_user.id)
 		else
-			redirect_to root_path, :alert => "Access for account onwes only" 
+			@account = Account.new(:user_id => current_user.id)
 		end
 	end
 
 	def show
-		user = User.find_by(:id => params[:user_id])
-		if (user == current_user) && (user.account_ids.include?(params[:id].to_i))
+		if current_user.account_ids.include?(params[:id].to_i)
 			@account = Account.find_by(:id => params[:id])
 		else
-			redirect_to root_path, :alert => "Can't show this account. Make sure you are to owner and loggedin as the owner"
+            redirect_to user_accounts_path(current_user.id), :alert => "You do not have access to this content"
 		end
 	end
 
