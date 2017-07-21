@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action :require_login, :except => [:new, :create]
-
+    before_action :owner_access 
 	#GET 
 	def new
 		@user = User.new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 		@user = User.create(user_params)
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to root_path
+			redirect_to root_path, :alert => "successfuly created user"
 		else
 			render :new
 		end
@@ -38,5 +38,9 @@ class UsersController < ApplicationController
 	private 
 	def user_params
 		params.require(:user).permit(:name, :email, :password, :password_confirmation)
+	end
+
+	def method_name
+		
 	end
 end
