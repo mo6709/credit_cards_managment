@@ -7,11 +7,22 @@ module ApplicationHelper
   	User.find_by(:id => session[:user_id])
   end
 
+  def owner_access
+    if params[:user_id]
+      unless current_user.id == params[:user_id].to_i
+        redirect_to root_path, :alert => "You must be loggedin as the owner of this contents"
+      end
+    elsif params[:id]
+      unless current_user.id == params[:user_id].to_i
+        redirect_to root_path, :alert => "You must be loggedin as the owner of this contents"
+      end
+    end
+  end
+
   def admin_access  
-	unless current_user.try(:admin)
-		flash[:alert] = "You most be logged in as an admin to access this section"
-		redirect_to root_path
-	end
+  	unless current_user.try(:admin)
+  		redirect_to root_path, :alert => "You most be logged in as an admin to access this section"
+  	end
   end
 
   def loggedin_buttons_for(account)
