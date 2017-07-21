@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
 	before_action :require_login, :owner_access
-    before_action :include_account?, only => [:show, :edit, :destroy]
-    
+    before_action :include_account?, :only => [:show, :edit, :destroy]
+
 	#GET
 	def index
 		@user = User.find_by(:id => params[:user_id])
@@ -46,7 +46,7 @@ class AccountsController < ApplicationController
 
 	def destroy
 		Account.delete(params[:id])
-		redirect_to user_accounts_path(user.id), :alert => "successfuly deleted"
+		redirect_to user_accounts_path(current_user.id), :alert => "successfuly deleted"
 	end
 
 	def include_account?
