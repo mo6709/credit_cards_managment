@@ -1,16 +1,47 @@
 <div class="account_form">
 	<%= form_for(account) do |account_builder|%>
+	  <%= render "shared/error_messages", :target => account %>
+	  
 	  <input type="hidden" name="account[user_id]", value="<%= account.user_id%>">
-	  <p><%= account_builder.label "Select Card:" %></p>
-	  <p><%= collection_select(:account, :card_id, Card.all, :id, :name, { :include_blank => true}) %></p>
-	  <p><%= account_builder.label :account_number %></p>
-	  <p><%= account_builder.text_field :account_number%></p>
-	  <p><%= account_builder.label :credit_line %></p>
-	  <p><%= account_builder.number_field :credit_line %></p>
-	  <p><%= account_builder.label :due_date %></p>
-	  <p><%= account_builder.date_field :due_date%></p>
-	  <p><%= account_builder.label :open_date %></p>
-	  <p><%= account_builder.date_field :open_date %></p>
-	  <p><%= account_builder.submit %></p>
+
+	  <div class="field"> 
+	    <%= account_builder.label "Select Card:" %>
+	    <%= collection_select(:account, 
+	  	                       :card_id, 
+	  	                       Card.all, 
+	  	                       :id, 
+	  	                       :name, 
+	                           { :include_blank => true }) %>
+	  </div>
+      
+      <div class="field">
+		<p> 
+		  <%= account_builder.label :account_number %>
+		  <%= account_builder.text_field :account_number%>
+		</p>  
+      </div>
+
+      <div class="field">
+        <p>
+	      <%= account_builder.label :credit_line %>
+	      <%= account_builder.number_field :credit_line %>
+	    </p>  
+      </div>
+
+      <div class="field">
+        <p>
+	      <%= account_builder.label :due_date %>
+	      <%= account_builder.date_field :due_date%>
+	    </p>
+      </div>
+
+      <div class="field">
+        <p>
+	      <%= account_builder.label :open_date %>
+	      <%= account_builder.date_field :open_date %>
+	    </p>
+      </div>
+
+	  <%= account_builder.submit %>
 	<% end %>
 </div>
