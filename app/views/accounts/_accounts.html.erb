@@ -1,8 +1,8 @@
 <div class="accounts_list">
 	<ul>
 	<% accounts.each do |account|%>
-	    <li><%= link_to(account.account_number, user_account_path(user.id, account.id)) %> |
-	        <%= link_to(account.card.name, card_path(account.card.id)) %> |
+	    <li>Account Number: <%= link_to(account.account_number, user_account_path(user.id, account.id)) %> |
+	        Card: <%= link_to(account.card.name, card_path(account.card.id)) %> |
 	        <%= loggedin_buttons_for(account) %>
 	    </li>
 	<% end %>	
