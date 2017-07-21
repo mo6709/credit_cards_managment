@@ -1,22 +1,27 @@
 <div class="bank_partner_form">
 	<%= form_for([:admin, bank_partner]) do |b_p_builder|%>
-
 	<div class="field">
-		<%= b_p_builder.label :name, "Bank Partner Name:" %>
-		<%= b_p_builder.text_field :name %>
+	    <p>
+			<%= b_p_builder.label :name, "Bank Partner Name:" %>
+			<%= b_p_builder.text_field :name %>
+		</p>
 	</div>
     
     <div class="field">
-    	<%= b_p_builder.label "Select Associated Cards" %><br>
-	    <%= b_p_builder.collection_check_boxes(:card_ids, Card.all, :id, :name)  do |box| %>
-		    <%= box.label class: "label_checkbox" do %>
-		    <%= box.check_box + box.text %>
+        <p>
+	    	<%= b_p_builder.label "Select Associated Cards" %><br>
+		    <%= b_p_builder.collection_check_boxes(:card_ids, Card.all, :id, :name)  do |box| %>
+			    <%= box.label class: "label_checkbox" do %>
+			    <%= box.check_box + box.text %>
+			    <% end %>
 		    <% end %>
-	    <% end %>
+	    </p>
     </div>
     
     <%= render :partial => 'nested_card_field', :locals => { :builder => b_p_builder } unless bank_partner.id %>
-	
-    <%= b_p_builder.submit %>
+    
+	<div class="action">
+        <%= b_p_builder.submit %>
+    </div>
 	<% end %>
 </div>
