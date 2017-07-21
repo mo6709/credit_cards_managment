@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
 	def new
 		if (params[:user_id].to_i == current_user.id) && (params[:card_id])
 			@account = Account.new(:user_id => current_user.id, :card_id => params[:card_id])
-		elsif params[:user_id] == current_user.id
+		elsif params[:user_id].to_i == current_user.id
 			@account = Account.new(:user_id => current_user.id)
 		else
 			redirect_to root_path, :alert => "Access for account onwes only" 
