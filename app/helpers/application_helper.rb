@@ -8,7 +8,9 @@ module ApplicationHelper
   end
 
   def owner_access
-    if params[:user_id]
+    if current_user.try(:admin)
+      return true
+    elsif params[:user_id]
       unless current_user.id == params[:user_id].to_i
         redirect_to root_path, :alert => "You must be loggedin as the owner of this contents"
       end
