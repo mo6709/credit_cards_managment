@@ -1,23 +1,33 @@
 <%= form_for user do |user_builder|%>
- <p>
- 	<%= user_builder.label :name%>
- 	<%= user_builder.text_field :name%>
- </p>
+<%= render "shared/error_messages", :target => user %>
 
- <p>
- 	<%= user_builder.label :email%>
- 	<%= user_builder.text_field :email%>
- </p>
+ <div class="field">
+	 <p>
+	 	<%= user_builder.label :name%>
+	 	<%= user_builder.text_field :name%>
+	 </p>
+ </div>
 
- <p>
- 	<%= user_builder.label :password%>
- 	<%= user_builder.password_field :password%>
- </p>
+ <div class="field">
+	 <p>
+	 	<%= user_builder.label :email%>
+	 	<%= user_builder.email_field :email%>
+	 </p>
+ </div>
 
- <p>
- 	<%= user_builder.label :password_confirmation%>
- 	<%= user_builder.password_field :password_confirmation%>
- </p>
+ <div class="field">
+	 <p>
+	 	<%= user_builder.label :password%>
+	 	<%= user_builder.password_field :password%>
+	 </p>
+ </div>
+
+ <div class="field">
+	 <p>
+	 	<%= user_builder.label :password_confirmation%>
+	 	<%= user_builder.password_field :password_confirmation%>
+	 </p>
+ </div>
 
  <%= user_builder.submit %>
 <% end %>
