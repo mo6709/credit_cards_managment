@@ -13,7 +13,7 @@ module ApplicationHelper
         redirect_to root_path, :alert => "You must be loggedin as the owner of this contents"
       end
     elsif params[:id]
-      unless current_user.id == params[:user_id].to_i
+      unless current_user.id == params[:id].to_i
         redirect_to root_path, :alert => "You must be loggedin as the owner of this contents"
       end
     end
