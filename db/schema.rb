@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170723164721) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "admin",           default: false
-    t.integer  "uid"
+    t.float    "uid"
     t.string   "image"
   end
 
