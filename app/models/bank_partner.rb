@@ -2,7 +2,7 @@ class BankPartner < ActiveRecord::Base
 	has_many :card_bank_partners
 	has_many :cards, through: :card_bank_partners
     
-    validates :name, :presance => true, :uniqueness => true
+    validates :name, :presence => true, :uniqueness => true
 
 	def cards_attributes=(card_attributes)
 	  	card_attributes.each do |i, attributes|
