@@ -15,8 +15,6 @@ Rails.application.routes.draw do
 
   #user
   get '/auth/google/callback' => 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
   
   resources :users, :only => [:new, :show, :edit, :create, :update]
 
