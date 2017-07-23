@@ -15,7 +15,6 @@ class BankPartnersController < ApplicationController
     end
 
     #POST
-
     def create
     end
 

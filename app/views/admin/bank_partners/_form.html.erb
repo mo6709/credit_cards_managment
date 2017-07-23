@@ -1,4 +1,6 @@
 <div class="bank_partner_form">
+    <%= render "shared/error_messages", :target => bank_partner %>
+    
 	<%= form_for([:admin, bank_partner]) do |b_p_builder|%>
 	<div class="field">
 	    <p>
@@ -19,7 +21,7 @@
     </div>
     
     <%= render :partial => 'nested_card_field', :locals => { :builder => b_p_builder } unless bank_partner.id %>
-    
+
 	<div class="action">
         <%= b_p_builder.submit %>
     </div>
