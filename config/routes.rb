@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   #omniauth
   get 'auth/google_oauth2/callback' => 'sessions#create'
   get 'auth/failure' => 'welcome#home'
-
+  
   resources :users, :only => [:new, :show, :edit, :create, :update]
 
   resources :users do
