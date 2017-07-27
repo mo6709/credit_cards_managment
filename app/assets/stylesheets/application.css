@@ -13,6 +13,87 @@
  *= require_tree .
  *= require_self
  */
-#main_page {
+/*#main_page {
     margin: 60px;
 }
+
+.admin_section h4 {
+    margin-left: 80px;
+    line-height:51px;
+    vertical-align:middle;
+}
+
+
+*/
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.pic, .info, .form, .indevidual_card, .indevidual_account{
+  padding: 20px;
+  display: inline-block;
+  background-color: #EEEEEE; 
+  border-radius: 7px;
+  vertical-align: middle;
+  margin: 10px;
+}
+
+.info {
+  width: 305px;
+  height: 150px;
+  text-align: left;
+}
+
+.floated {
+   float:left;
+   margin-right:5px;
+}
+
+.banks_list .bank_with_cards .cards_list .info {
+   float:left;
+   margin-right:5px;
+}
+
+.bank_with_cards {
+	border-radius: 7px;
+	padding-top: 10px;
+	background-color: #e6e6e6;
+	clear: both;	
+}
+
+.card {
+	box-shadow: 6px 6px 5px #888888;
+}
+
+.card:hover {
+	box-shadow: 7px 7px 5px #588888;
+}
+
+.bank_with_cards strong {
+	position: center;
+	color: black;
+}
+
+
+
+

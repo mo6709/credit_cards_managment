@@ -1,13 +1,13 @@
-<div class="individual_card"> 
-	<p>name:<%= link_to(card.name, card.corp_url) %></p><br> 
-	<p>type: <%= link_to(card.c_type, cards_index_type_path(card.c_type)) %></p><br>
-	<p>bonus: <%= card.bonus %></p><br>
-	<p>apr: <%= card.apr %></p><br>
-	<p>anual fee: <%= card.anual_fee %></p><br>
-	<p>credit needed: <%= card.credit_needed %></p><br>
-	<p>balance transfer apr: <%= card.balance_transfer_apr %></p><br>
-	<p>balance transfer: <%= card.balance_transfer_period %></p><br>
-	<p>category: <%= link_to(card.category.title, category_path(card.category.id)) %></p><br>
-	<p>banks: <%= links_for_bank_partners(card) %></p><br>
+<div class="indevidual_card">
+	<p><strong>name:</strong><%= link_to(card.name, card.corp_url) %></p><br> 
+	<p><strong>type:</strong> <%= link_to(card.c_type, cards_index_type_path(card.c_type)) %></p><br>
+	<p><strong>bonus:</strong> <%= card.bonus %></p><br>
+	<p><strong>apr:</strong> <%= card.apr %></p><br>
+	<p><strong>anual fee:</strong> <%= card.anual_fee %></p><br>
+	<p><strong>credit needed:</strong> <%= card.credit_needed %></p><br>
+	<p><strong>balance transfer apr:</strong> <%= card.balance_transfer_apr %></p><br>
+	<p><strong>balance transfer:</strong> <%= card.balance_transfer_period %></p><br>
+	<p><strong>category:</strong> <%= link_to(card.category.title, category_path(card.category.id)) %></p><br>
+	<p><strong>banks:</strong> <%= links_for_bank_partners(card) %></p><br>
 	<%= admin_buttons_for(card) %>
 </div>

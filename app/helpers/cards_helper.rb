@@ -5,4 +5,10 @@ module CardsHelper
               end
       links.join(" | ").html_safe        
 	end
+
+	def admin_create_card
+		if current_user.try(:admin) 
+			link_to("Create New Card", new_admin_card_path)
+		end
+	end
 end	

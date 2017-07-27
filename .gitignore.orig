@@ -20,6 +20,6 @@
 #Ignore env files
 *.env
 =======
-#Ignore .env files
+#Ignore .env file
 *.env 
 >>>>>>> user_sessions_featurs

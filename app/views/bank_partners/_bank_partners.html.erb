@@ -1,12 +1,13 @@
 <div class="banks_list">
 	<ul>
-	<% bank_partners.each do |bank_partner|%>
-        <li><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id)) %> |
-            <%= admin_buttons_for(bank_partner) %>
+	    <% bank_partners.each do |bank_partner|%>
+        <li>
+            <div class="container-fluid bank_with_cards">
+            <strong><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id), class: 'floated') %></strong>
+            <%= admin_buttons_for(bank_partner) %><br>
+            <%= render :partial => 'cards/cards', :locals => { :cards => bank_partner.cards } %>
+            </div><br>
         </li>
-        <ul>
-        	<%= render :partial => 'cards/cards', :locals => { :cards => bank_partner.cards } %>
-        </ul>
-    <% end %>
+        <% end %>
 	</ul>
 </div>

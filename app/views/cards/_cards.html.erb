@@ -1,12 +1,15 @@
 <div class="cards_list">
 	<ul>
-	 <% cards.each do |card|%>
-	 <li><%= link_to(card.name, card_path(card.id))%> | 
-	 <%= link_to(card.c_type, cards_index_type_path(card.c_type)) %> |
-	 Bonus: <%= card.bonus %> |
-	 <%= admin_buttons_for(card) %>
-	 <%= add_card(card)%>
-	 </li>
-	 <% end %>
+	    <% cards.each do |card|%>
+		<li>
+			<div class="container-fluid info floated card">
+			<%= link_to(card.name, card_path(card.id))%> | 
+			<%= link_to(card.c_type, cards_index_type_path(card.c_type)) %><br>
+			<strong>Bonus: </strong><%= card.bonus %> 
+			<%= admin_buttons_for(card) %> 
+			<%= add_card(card)%>
+			</div>
+		</li> 
+	    <% end %>
 	</ul>
 </div>

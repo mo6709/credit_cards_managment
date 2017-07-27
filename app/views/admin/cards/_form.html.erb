@@ -1,4 +1,6 @@
-<div class="new_card_form">
+<div class="form new_card_form">
+    <%= render "shared/error_messages", :target => card %>
+
   	<%= form_for([:admin, card]) do |card_builder| %>
   	<%= render :partial => 'card_fields', :locals => { :builder => card_builder }%>
   	<%= card_builder.submit %>
