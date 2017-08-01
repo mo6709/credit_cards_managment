@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.4'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -32,7 +32,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'omniauth-google-oauth2', '~>0.2.1'
-gem 'dotenv-rails'
 gem "bootstrap-sass", "~> 3.1.1"
 
 group :development, :test do
@@ -50,6 +49,8 @@ group :development do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  gem 'dotenv-rails'
 end
 
 group :production do
