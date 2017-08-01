@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'devise'
 gem 'omniauth-google-oauth2', '~>0.2.1'
 gem 'dotenv-rails'
 gem "bootstrap-sass", "~> 3.1.1"
