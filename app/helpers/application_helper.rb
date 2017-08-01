@@ -4,7 +4,7 @@ module ApplicationHelper
   end
   
   def current_user
-  	User.find_by(:id => session[:user_id])
+  	user ||= User.find_by(:id => session[:user_id])
   end
 
   def owner_access
@@ -49,7 +49,7 @@ module ApplicationHelper
   def add_card(card)
     if logged_in? && !current_user.admin
       if !current_user.cards.include?(card)
-        button_to("Get this card", new_user_account_with_card_path(current_user.id, card.id), method: :get, class: 'btn btn-secondary')
+        button_to("Add this card", new_user_account_with_card_path(current_user.id, card.id), method: :get, class: 'btn btn-secondary')
       end
     end
   end
