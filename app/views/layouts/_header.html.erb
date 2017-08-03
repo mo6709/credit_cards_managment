@@ -1,6 +1,8 @@
-<!--  navbar -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <!-- <div class="container"> -->
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -10,20 +12,41 @@
       </button>
       <a class="navbar-brand" href="<%= root_path %>"/>Home</a>
     </div>
-    <div class="navbar-collapse collapse">
+    
+    
       <ul class="nav navbar-nav">
-       <!--  nav here -->
        <% if logged_in? %>
         <li><%= link_to("Cards", cards_path) %></li>
         <li><%= link_to("Bank Partners", bank_partners_path) %></li>
         <li><%= link_to("Hello, #{current_user.name}!", user_path(current_user.id))%></li>
-        <li><%= link_to("Logout", logout_path, method: :delete)%></li>
        <% else %>
-        <li><%= link_to("Login", login_path) %></li>
-        <li><%= link_to("Signup", new_user_path) %></li>
-        <li><%= link_to("Login With Google", '/auth/google_oauth2')%></li>
+        <li><%= link_to("Cards", cards_path) %></li>
        <% end %>
       </ul>
-    </div><!--/.nav-collapse -->
-  <!-- </div> -->
-</div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+        <% if logged_in? %>
+         <li>
+            <%= link_to logout_path, method: :delete do %>
+              <span class="glyphicon glyphicon-log-out"></span> Logout
+            <% end %> 
+         </li>
+        <% else %>
+          <li>
+            <%= link_to login_path do %>
+              <span class="glyphicon glyphicon-log-in"></span> Login
+            <% end %>   
+          </li>
+          <li>
+              <%= link_to new_user_path do%>
+                <span class="glyphicon glyphicon-user"></span> Sign Up
+              <% end %>
+          </li>
+          <li><%= link_to("Login With Google", '/auth/google_oauth2')%></li>
+        <% end %>
+      </ul>
+
+  </div>
+</nav>
