@@ -32,8 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'omniauth-google-oauth2', '~>0.2.1'
-gem "bootstrap-sass", "~> 3.1.1"
-
+gem "bootstrap-sass"
+x
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
