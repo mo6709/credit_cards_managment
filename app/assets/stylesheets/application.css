@@ -15,18 +15,6 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-/*#main_page {
-    margin: 60px;
-}
-
-.admin_section h4 {
-    margin-left: 80px;
-    line-height:51px;
-    vertical-align:middle;
-}
-
-
-*/
 
 ul {
   list-style-type: none;
