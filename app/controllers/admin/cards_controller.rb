@@ -20,7 +20,6 @@ class Admin::CardsController < ApplicationController
     def create
         @card = Card.create(card_params.reject{|a| a == 'c_type'})
         @card.c_type = card_params[:c_type].to_i
-        binding.pry
         if @card.save
             redirect_to admin_card_path(@card.id), alert: 'Card successfully created'
         else
