@@ -18,10 +18,11 @@ class Admin::CardsController < ApplicationController
 
     #POST
     def create
-        @card = Card.new(card_params.reject{|a| a == 'c_type'})
+        @card = Card.create(card_params.reject{|a| a == 'c_type'})
         @card.c_type = card_params[:c_type].to_i
+        binding.pry
         if @card.save
-            redirect_to admin_card_path(@card.id), alert: 'Card was successfully created'
+            redirect_to admin_card_path(@card.id), alert: 'Card successfully created'
         else
             render :new
         end	
@@ -31,7 +32,7 @@ class Admin::CardsController < ApplicationController
         @card.update(card_params.reject{|a| a == 'c_type'})
         @card.c_type = card_params[:c_type].to_i
         if @card.save
-            redirect_to admin_card_path(@card.id), alert: 'Card was successfully edited'
+            redirect_to admin_card_path(@card.id), alert: 'Card successfully edited'
         else
             render :edit
         end
@@ -49,6 +50,18 @@ class Admin::CardsController < ApplicationController
     end
 
     def card_params
-        params.require(:card).permit(:name, :credit_needed, :c_type, :bonus, :apr, :balance_transfer_apr, :balance_transfer_period, :anual_fee, :corp_url, :category_id)
+        params.require(:card).permit(:name, 
+                                    :credit_needed, 
+                                    :c_type, 
+                                    :bonus, 
+                                    :apr, 
+                                    :balance_transfer_apr, 
+                                    :balance_transfer_period, 
+                                    :anual_fee, 
+                                    :corp_url, 
+                                    :category_id,
+                                    :bank_partner_ids => [], 
+                                    :bank_partners_attributes => [:name]
+                                    )
     end
 end

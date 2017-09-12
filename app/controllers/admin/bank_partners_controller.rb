@@ -20,9 +20,11 @@ class Admin::BankPartnersController < ApplicationController
     #POST
     def create
     	@bank_partner = BankPartner.create(bank_partner_params)
-    	if @bank_partner.valid?
-    	    redirect_to admin_bank_partner_path(@bank_partner.id), alert: 'Bank Partner was successfully created'
-    	else
+    	if @bank_partner.valid? && @bank_partner.cards_attributes_saved
+    	    redirect_to admin_bank_partner_path(@bank_partner.id), alert: 'Bank Partner and the assoiciated card successfully created.'
+    	elsif @bank_partner.valid?
+            redirect_to new_admin_card_path, alert: 'Bank partner successfully created. The assoiciated card was NOT saved.'
+        else
     		render 'new'
     	end
     end
@@ -48,10 +50,19 @@ class Admin::BankPartnersController < ApplicationController
 
     private 
     def bank_partner_params
-    	params.require(:bank_partner).permit(:name, :card_ids => [], 
-    		                                 :cards_attributes => 
-    		                                 [:name, :c_type, :bonus, :apr, :anual_fee, :credit_needed, :balance_transfer_apr, :balance_transfer_period, :category_id, :corp_url]
-    		                                 )
+    	params.require(:bank_partner).permit(:name, 
+                                             :card_ids => [], 
+    		                                 :cards_attributes => [ :name, 
+                                                                    :c_type, 
+                                                                    :bonus, 
+                                                                    :apr, 
+                                                                    :anual_fee, 
+                                                                    :credit_needed, 
+                                                                    :balance_transfer_apr, 
+                                                                    :balance_transfer_period, 
+                                                                    :category_id, 
+                                                                    :corp_url ]
+                                            )
     end
 
 end

@@ -2,7 +2,21 @@
     <%= render "shared/error_messages", :target => card %>
 
   	<%= form_for([:admin, card]) do |card_builder| %>
-  	<%= render :partial => 'card_fields', :locals => { :builder => card_builder }%>
+  	    <%= render :partial => 'card_fields', :locals => { :builder => card_builder } %>
+        <span>--------------------------------------------------------------------------------</span> 
+		<div class="field">
+			<p>Creat new Bank Partner</p>
+			<%= card_builder.fields_for(:bank_partners, BankPartner.new) do |b_p_builder|%>
+			  <%= b_p_builder.label :name, "Bank Partner Name:" %>
+			  <%= b_p_builder.text_field :name%>
+			<% end%><br>
+		</div>
+
+		<div class="field">
+			<p>Select relevent Bank Partners</p>
+			<%= card_builder.collection_check_boxes(:bank_partner_ids, BankPartner.all, :id, :name)%>
+		</div>
+
   	<%= card_builder.submit %>
   	<% end %>
 </div>
