@@ -20,9 +20,10 @@ class BankPartner < ActiveRecord::Base
                         end
                     end
                     if card.save
-			  		    self.card_bank_partners.build(:card => card)
-			  		    self.save
-			  		    self.cards_attributes_saved = true
+			  		    #self.card_bank_partners.build(:card => card)
+			  		    #self.save
+			  		    #self.cards_attributes_saved = true
+			  		    self.cards << card
 		  		    else
                         self.cards_attributes_saved = false
 		  		    end  
