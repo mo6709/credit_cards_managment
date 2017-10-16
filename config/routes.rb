@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   #card
-  resources :cards, :only => [:index, :show, :new, :edit, :create, :update]
+  resources :cards, :only => [:index, :show]
   get '/cards/index_type/:type' => 'cards#index_type', :as => 'cards_index_type'
 
 
