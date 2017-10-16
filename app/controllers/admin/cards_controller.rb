@@ -21,7 +21,10 @@ class Admin::CardsController < ApplicationController
         @card = Card.create(card_params.reject{|a| a == 'c_type'})
         @card.c_type = card_params[:c_type].to_i
         if @card.save
-            redirect_to admin_card_path(@card.id), alert: 'Card successfully created'
+            respond_to do|format| 
+                format.html { redirect_to admin_card_path(@card.id), alert: 'Card successfully created' }
+                format.json { render :json => @card, :status => 201 }
+            end    
         else
             render :new
         end	
