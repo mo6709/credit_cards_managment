@@ -11,3 +11,10 @@ function Card(attributes){
     this.bank_partners = attributes.bank_partners;
 };
 
+Card.show = function(json) {
+	var card = new Card(json);
+};
+
+$(function(){
+	
+})
