@@ -1,7 +1,11 @@
 class CardsController < ApplicationController
 	#GET
 	def index
-		@cards = Card.all        
+		@cards = Card.all
+		respond_to do |format|
+		    format.html { @cards } 
+		    format.json { render :json => @cards }   
+		end  
 	end
     
 	def index_type
@@ -10,22 +14,11 @@ class CardsController < ApplicationController
 	end
 
 	def show
-		@card = Card.find_by(params[:id]) 	
+		@card = Card.find_by(params[:id])
+		respond_to do |format|
+			format.html { @card }
+			format.json { render :json => @card }
+		end 	
 	end
 
-	def new
-		
-	end
-
-	def edit
-		
-	end
-
-	def create
-		
-	end
-
-	def update
-		
-	end
 end
