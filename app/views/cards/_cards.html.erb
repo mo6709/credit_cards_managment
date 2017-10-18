@@ -3,7 +3,7 @@
 	    <% cards.each do |card|%>
 		<li>
 			<div class="container-fluid info floated card">
-			<%= link_to(card.name, card_path(card.id), data: { id: "#{card.id}" }, class: "card_name" )%> | 
+			<%= link_to(card.name, card_path(card.id), data: { id: "#{card.id}" }, class: "card_name")%> | 
 			<%= link_to(card.c_type, cards_index_type_path(card.c_type)) %><br>
 			<strong>Bonus: </strong><%= card.bonus %> 
 			<%= admin_buttons_for(card) %> 
