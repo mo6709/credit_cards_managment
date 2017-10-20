@@ -17,7 +17,7 @@
 <script id="modalTemplate" type="text/x-handlebars-template" >
 	<div class="modal" id="modalCard{{id}}">
 		<div class="card-content">
-		  <span class="close">&times;</span>
+		  <span class="close" onclick="closeCard(this)">&times;</span>
 		  <h1>{{name}}</h1>
 		  <div class="body">
 		    {{c_type}}
