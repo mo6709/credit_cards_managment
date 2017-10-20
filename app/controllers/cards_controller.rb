@@ -14,7 +14,7 @@ class CardsController < ApplicationController
 	end
 
 	def show
-		@card = Card.find_by(params[:id])
+		@card = Card.find_by(:id => params[:id])
 		respond_to do |format|
 			format.html { @card }
 			format.json { render :json => @card }
