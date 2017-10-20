@@ -29,7 +29,6 @@ Card.getCard = function(cardNode){
 };
 
 Card.showCard = function(cardId){ 
-   //change the css default to show the card with the corect id
    $(`#modalCard${cardId}`)[0].style.display = "block";
 };
 
@@ -45,9 +44,13 @@ Card.prototype.renderModal = function(){
 };
 
 
+function closeCard(card){
+	card.parentElement.parentElement.style.display = "none"
+};
+
 
 $(function(){
-
+    
     Card.modalTemplateSource = $('#modalTemplate').html();
     Card.modalTemplate = Handlebars.compile(Card.modalTemplateSource); 
 
@@ -60,4 +63,9 @@ $(function(){
 			Card.getCard(this)
 		}		
 	});
+
 })
+
+
+
+
