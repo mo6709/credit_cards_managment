@@ -15,7 +15,7 @@ function Card(attributes){
     this.corp_url = attributes.corp_url;
 };
 
-Card.getCard = function(cardNode){		
+Card.getCard = function(cardNode){
     $.ajax({
     	url: cardNode.href,
     	dataType: "json",
@@ -23,7 +23,8 @@ Card.getCard = function(cardNode){
     })
     .success(function(data){
     	var newCard = Card.makeCard(data)
-    	$('div.cards_list').append(newCard.renderModal());
+    	var cardModal = newCard.renderModal()
+    	$('div.cards_list').append(cardModal);
     	Card.showCard(newCard.id)
     }) 
 };
@@ -50,13 +51,12 @@ function closeCard(card){
 
 
 $(function(){
-    
+
     Card.modalTemplateSource = $('#modalTemplate').html();
     Card.modalTemplate = Handlebars.compile(Card.modalTemplateSource); 
 
 	$('a.card_name').on("click", function(event){
 		event.preventDefault();
-        
 	    if(cards[this.dataset.id]){
 		    Card.showCard(this.dataset.id)
 		}else{
@@ -65,7 +65,3 @@ $(function(){
 	});
 
 })
-
-
-
-
