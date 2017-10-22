@@ -20,5 +20,30 @@
     <%= yield %>
 </div>
 
+<script id="modalTemplate" type="text/x-handlebars-template" >
+  <div class="modal" id="modalCard{{id}}">
+    <div class="card-content">
+      <span class="close" onclick="closeCard(this)">&times;</span>
+      <h1>{{name}}</h1>
+      <div class="body">
+        Card Type:<strong> {{c_type}}</strong><br>
+        Bonus: <strong> {{bonus}}</strong><br>
+        APR: <strong> {{apr}}</strong><br>
+        Anual Fee: <strong> ${{anual_fee}}</strong><br>
+        Credit Needed: <strong> {{credit_needed}}</strong><br>
+        Balance Transfar APR: <strong> {{balance_transfer_apr}}%</strong><br>
+        Balance Transfer Period: <strong> {{balance_transfer_period}} Months</strong><br>
+        Category: <strong>{{category}}</strong><br>
+        Bank Partners:  <strong>
+                          {{#each bank_partners}}
+                                {{name}}, 
+                            {{/each}}
+                        </strong><br>
+        <a href="{{corp_url}}"> {{corp_url}}</a>
+      </div>
+    </div>
+  </div>
+</script>
+
 </body>
 </html>
