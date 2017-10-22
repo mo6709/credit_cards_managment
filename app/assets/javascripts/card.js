@@ -1,4 +1,5 @@
 var cards = {};
+var bankPartners = {};
 
 function Card(attributes){
 	this.id = attributes.id;
@@ -16,6 +17,7 @@ function Card(attributes){
 };
 
 function BankPartner(attributes){
+	this.id = attributes.id;
 	this.name = attributes.name;
 	this.cards = attributes.cards;
 };
@@ -27,7 +29,6 @@ BankPartner.getCards = function(bankNode){
     	method: "GET"
     })
     .success(function(data){
-    	debugger;
     })
 };
 
@@ -83,8 +84,11 @@ $(function(){
 
 	$('li div strong a.bank_link').on("click", function(event){
         event.preventDefault();
-        BankPartner.getCards(this);
-        // BankPartner.showCards();
+        if (bank_partners[this.dataset.id]){
+            // BankPartner.showCards();
+        }else{
+            BankPartner.getCards(this);
+        }        
 	});
 
 })
