@@ -32,6 +32,11 @@ BankPartner.getCards = function(bankNode){
     })
 };
 
+BankPartner.prototype.renderModal = function(){
+    return BankPartner.modalTemplate(this)
+};
+
+
 Card.getCard = function(cardNode){
     $.ajax({
     	url: cardNode.href,
@@ -71,6 +76,9 @@ $(function(){
 
     Card.modalTemplateSource = $('#modalTemplate').html();
     Card.modalTemplate = Handlebars.compile(Card.modalTemplateSource); 
+
+    BankPartner.modalTemplateSource = $('').html();
+    BankPartner.modalTemplate = Handlebars.compile(BankPartner.modalTemplateSource);
 
 	$('a.card_name').on("click", function(event){
 		event.preventDefault();
