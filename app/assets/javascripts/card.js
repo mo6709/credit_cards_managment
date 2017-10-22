@@ -29,6 +29,9 @@ BankPartner.getCards = function(bankNode){
     	method: "GET"
     })
     .success(function(data){
+    	var newBankPartner = BankPartner.makeCards(data);
+    	var cardsList = newBankPartner.renderModal();
+    	$(`div.banks_list ul li div#bank_partner_cards_list_${data.id}`).append(cardsList);   	
     })
 };
 
@@ -36,6 +39,11 @@ BankPartner.prototype.renderModal = function(){
     return BankPartner.modalTemplate(this)
 };
 
+BankPartner.makeCards = function(json){
+  var bankPartner = new BankPartner(json);
+  bankPartners[bankPartner.id] = bankPartner;
+  return bankPartner;
+};
 
 Card.getCard = function(cardNode){
     $.ajax({
