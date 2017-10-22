@@ -106,11 +106,11 @@ body {
     border: 1px solid #888;
     border-radius: 10px;
     box-shadow: 7px 7px 5px #888888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 40%; /* Could be more or less, depending on screen size */
 }
 
 .close {
-    color: #aaa;
+    color: #11111;
     float: right;
     font-size: 28px;
     font-weight: bold;
