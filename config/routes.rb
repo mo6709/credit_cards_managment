@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :card_bank_partners
-  resources :bank_partners
+  resources :bank_partners, :only => [:show, :index]
   
   
 
