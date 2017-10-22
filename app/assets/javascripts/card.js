@@ -15,6 +15,11 @@ function Card(attributes){
     this.corp_url = attributes.corp_url;
 };
 
+function BankPartner(attributes){
+	this.name = attributes.name;
+	this.cards = attributes.cards;
+};
+
 Card.getCard = function(cardNode){
     $.ajax({
     	url: cardNode.href,
@@ -64,4 +69,9 @@ $(function(){
 		}		
 	});
 
+
 })
+
+
+
+
