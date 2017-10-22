@@ -74,10 +74,10 @@ function closeCard(card){
 
 $(function(){
 
-    Card.modalTemplateSource = $('#modalTemplate').html();
+    Card.modalTemplateSource = $('#cardModalTemplate').html();
     Card.modalTemplate = Handlebars.compile(Card.modalTemplateSource); 
 
-    BankPartner.modalTemplateSource = $('').html();
+    BankPartner.modalTemplateSource = $('#bankPartnerModalTemplate').html();
     BankPartner.modalTemplate = Handlebars.compile(BankPartner.modalTemplateSource);
 
 	$('a.card_name').on("click", function(event){
@@ -92,7 +92,7 @@ $(function(){
 
 	$('li div strong a.bank_link').on("click", function(event){
         event.preventDefault();
-        if (bank_partners[this.dataset.id]){
+        if (bankPartners[this.dataset.id]){
             // BankPartner.showCards();
         }else{
             BankPartner.getCards(this);
