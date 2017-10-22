@@ -3,9 +3,9 @@
 	    <% bank_partners.each do |bank_partner|%>
         <li>
             <div class="container-fluid bank_with_cards">
-            <strong><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id), class: 'floated') %></strong>
+            <strong><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id), class: 'floated bank_link') %></strong>
             <%= admin_buttons_for(bank_partner) %><br>
-            <%= render :partial => 'cards/cards', :locals => { :cards => bank_partner.cards } %>
+            <div id="cards_list"></div>
             </div><br>
         </li>
         <% end %>
