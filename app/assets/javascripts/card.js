@@ -70,6 +70,12 @@ $(function(){
 	});
 
 
+	$('li div strong a.bank_link').on("click", function(event){
+        event.preventDefault();
+        BankPartner.getCards();
+        BankPartner.showCards();
+	});
+
 })
 
 
