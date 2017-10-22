@@ -61,12 +61,12 @@ Card.getCard = function(cardNode){
     	var newCard = Card.makeCard(data)
     	var cardModal = newCard.renderModal()
     	$('div.cards_list').append(cardModal);
-    	Card.showCard(newCard.id)
+    	newCard.showCard();
     }) 
 };
 
-Card.showCard = function(cardId){ 
-   $(`#modalCard${cardId}`)[0].style.display = "block";
+Card.showCard = function(){ 
+   $(`#modalCard${this.id}`)[0].style.display = "block";
 };
 
 Card.makeCard = function(json){
