@@ -3,21 +3,13 @@ class BankPartnersController < ApplicationController
 	def index
 		@bank_partners = BankPartner.all
 	end
-    
-    def new
-    end
 
     def show
     	@bank_partner = BankPartner.find_by(:id => params[:id])
+        respond_to do |format|
+            format.html { @bank_partner }
+            format.json { render :json => @bank_partner }
+        end
     end
 
-    def edit
-    end
-
-    #POST
-    def create
-    end
-
-    def update
-    end
 end	
