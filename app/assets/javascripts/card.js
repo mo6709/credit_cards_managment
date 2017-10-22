@@ -31,7 +31,8 @@ BankPartner.getCards = function(bankNode){
     .success(function(data){
     	var newBankPartner = BankPartner.makeCards(data);
     	var cardsList = newBankPartner.renderModal();
-    	$(`div.banks_list ul li div#bank_partner_cards_list_${data.id}`).append(cardsList);   	
+    	$(`div.banks_list ul li div#bank_partner_cards_list_${data.id}`).append(cardsList);
+    	newBankPartner.showCards();   	
     })
 };
 
@@ -44,6 +45,11 @@ BankPartner.makeCards = function(json){
   bankPartners[bankPartner.id] = bankPartner;
   return bankPartner;
 };
+
+BankPartner.prototype.showCards = function(){
+    $(`div.banks_list ul li div#bank_partner_cards_list_${this.id} .modal`)[0].style.display = "block"
+};
+
 
 Card.getCard = function(cardNode){
     $.ajax({
