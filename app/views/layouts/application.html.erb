@@ -46,21 +46,23 @@
 </script>
 
 <script id="bankPartnerModalTemplate" type="text/x-handlebars-template">
-  <h1>{{name}}</h1>
-  <div class="cards-content-ul">
-    <div class="body">
-      <ul>
-        {{#each cards}}
-          <li>
-            {{name}},
-            {{c_type}},
-            {{bonus}},
-            {{corp_url}}
-          </li>
-        {{/each}}  
-      </ul>
-    </div>    
-  </div>
+  <div class="modal">
+    <div class="cards-content-ul">
+      <h1>{{name}}</h1>
+      <div class="body">
+        <ul>
+          {{#each cards}}
+            <li>
+              {{name}},
+              {{c_type}},
+              {{bonus}},
+              {{corp_url}}
+            </li>
+          {{/each}}  
+        </ul>
+      </div>    
+    </div>
+  </div>  
 </script>
 
 </body>
