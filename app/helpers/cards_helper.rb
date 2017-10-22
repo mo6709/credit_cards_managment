@@ -8,7 +8,7 @@ module CardsHelper
 
 	def admin_create_card
 		if current_user.try(:admin) 
-			link_to("Create New Card", new_admin_card_path)
+			link_to("Create New Card", new_admin_card_path, id: "admin_creat_new_card")
 		end
 	end
 end	
