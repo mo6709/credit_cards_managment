@@ -99,7 +99,7 @@ body {
 }
 
 /* Modal Content/Box */
-.card-content {
+.card-content, .cards-content-ul{
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
