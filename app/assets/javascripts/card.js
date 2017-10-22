@@ -20,6 +20,17 @@ function BankPartner(attributes){
 	this.cards = attributes.cards;
 };
 
+BankPartner.getCards = function(bankNode){
+    $.ajax({
+    	url: bankNode.href,
+    	dataType: "json",
+    	method: "GET"
+    })
+    .success(function(data){
+    	debugger;
+    })
+};
+
 Card.getCard = function(cardNode){
     $.ajax({
     	url: cardNode.href,
@@ -72,8 +83,8 @@ $(function(){
 
 	$('li div strong a.bank_link').on("click", function(event){
         event.preventDefault();
-        BankPartner.getCards();
-        BankPartner.showCards();
+        BankPartner.getCards(this);
+        // BankPartner.showCards();
 	});
 
 })
