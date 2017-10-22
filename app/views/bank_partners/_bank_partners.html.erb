@@ -3,9 +3,9 @@
 	    <% bank_partners.each do |bank_partner|%>
         <li>
             <div class="container-fluid bank_with_cards">
-            <strong><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id), class: 'floated bank_link') %></strong>
+            <strong><%= link_to(bank_partner.name, bank_partner_path(bank_partner.id), data: { id: "#{bank_partner.id}" }, class: 'floated bank_link') %></strong>
             <%= admin_buttons_for(bank_partner) %><br>
-            <div id="cards_list"></div>
+            <div id="bank_partner_cards_list_<%= bank_partner.id %>"></div>
             </div><br>
         </li>
         <% end %>
