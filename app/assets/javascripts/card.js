@@ -65,7 +65,7 @@ Card.getCard = function(cardNode){
     }) 
 };
 
-Card.showCard = function(){ 
+Card.prototype.showCard = function(){ 
    $(`#modalCard${this.id}`)[0].style.display = "block";
 };
 
@@ -81,7 +81,7 @@ Card.prototype.renderModal = function(){
 };
 
 
-function closeCard(card){
+function closeModal(card){
 	card.parentElement.parentElement.style.display = "none"
 };
 
@@ -97,7 +97,7 @@ $(function(){
 	$('a.card_name').on("click", function(event){
 		event.preventDefault();
 	    if(cards[this.dataset.id]){
-		    Card.showCard(this.dataset.id)
+		    cards[this.dataset.id].showCard()
 		}else{
 			Card.getCard(this)
 		}		
@@ -107,7 +107,7 @@ $(function(){
 	$('li div strong a.bank_link').on("click", function(event){
         event.preventDefault();
         if (bankPartners[this.dataset.id]){
-            // BankPartner.showCards();
+            bankPartners[this.dataset.id].showCards();
         }else{
             BankPartner.getCards(this);
         }        
