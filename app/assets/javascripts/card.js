@@ -53,6 +53,9 @@ function closeModal(card){
 $(function(){
     Card.modalTemplateSource = $('#cardModalTemplate').html();
     Card.modalTemplate = Handlebars.compile(Card.modalTemplateSource); 
+    
+    Card.modalFormTemplateSource = $('#newCardFormModalTemplate').html();
+    Card.formModalTemplate = Handlebars.compile(Card.modalFormTemplateSource)
 
 	$('a.card_name').on("click", function(event){
 		event.preventDefault();
@@ -61,6 +64,10 @@ $(function(){
 		}else{
 			Card.getCard(this)
 		}		
+	});
+
+	$('div.admin_section #admin_creat_new_card').on("click", function(){
+		
 	});
 })
 
