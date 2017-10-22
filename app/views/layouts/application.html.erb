@@ -23,7 +23,7 @@
 <script id="cardModalTemplate" type="text/x-handlebars-template" >
   <div class="modal" id="modalCard{{id}}">
     <div class="card-content">
-      <span class="close" onclick="closeCard(this)">&times;</span>
+      <span class="close" onclick="closeModal(this)">&times;</span>
       <h1>{{name}}</h1>
       <div class="body">
         Card Type:<strong> {{c_type}}</strong><br>
@@ -45,18 +45,22 @@
   </div>
 </script>
 
+
 <script id="bankPartnerModalTemplate" type="text/x-handlebars-template">
   <div class="modal">
     <div class="cards-content-ul">
+      <span class="close" onclick="closeModal(this)">&times;</span>
       <h1>{{name}}</h1>
       <div class="body">
         <ul>
           {{#each cards}}
             <li>
-              {{name}},
-              {{c_type}},
-              {{bonus}},
-              {{corp_url}}
+              <div>
+                <a data-id="7" class="card_name" href="/cards/{{id}}">{{name}}</a> | 
+                <a href="/cards/index_type/{{c_type}}">{{c_type}}</a><br>
+                Bonus: <strong>{{bonus}}</strong><br>
+                URL: <strong><a href="{{corp_url}}">{{corp_url}}</a></strong>     
+              </div><br>
             </li>
           {{/each}}  
         </ul>
