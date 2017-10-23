@@ -44,9 +44,14 @@ Card.prototype.renderModal = function(){
     return Card.modalTemplate(this)
 };
 
-
+//the bankPartner script depends on this function as well
 function closeModal(card){
 	card.parentElement.parentElement.style.display = "none"
+};
+
+Card.renderFormModal = function(){
+	var formTemplate = Card.formModalTemplate({name: "cardNewForm"});
+    $('#main_page').append(formTemplate);
 };
 
 
@@ -66,8 +71,9 @@ $(function(){
 		}		
 	});
 
-	$('div.admin_section #admin_creat_new_card').on("click", function(){
-		
+	$('div.admin_section #admin_creat_new_card').on("click", function(event){
+		event.preventDefault();
+		Card.renderFormModal();
 	});
 })
 
