@@ -102,13 +102,8 @@ $(function(){
 
 	$('div.admin_section #admin_creat_new_card').on("click", function(event){
 		event.preventDefault();
-		var formExsits = $('div.modal div.form form#new_card').length;
-		if (formExsits){
-            Card.showFormModal();
-		}else{
-			Card.getNewFormFields(this);
-			Card.showFormModal();
-		}
+		Card.getNewFormFields(this);
+		Card.showFormModal();
 	});
 })
 
