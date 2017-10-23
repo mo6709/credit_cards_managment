@@ -17,7 +17,7 @@
 	<%= content_tag :div, msg, class: name %>
 	<% end %>
 	
-    <%= yield %>
+  <%= yield %>
 </div>
 
 <script id="cardModalTemplate" type="text/x-handlebars-template" >
@@ -71,3 +71,10 @@
 
 </body>
 </html>
+
+<div class="modal" id="newCardForm">
+  <div class="card-form-content">
+    <span class="close" onclick="closeModal(this)">&times;</span>
+  </div>
+</div>
+  
