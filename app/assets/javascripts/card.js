@@ -57,9 +57,12 @@ Card.getNewFormFields = function(linkNode){
 	.success(function(data){ 
 	    $('div#newCardForm div.card-form-content span.close').after(data)
 
-	    $('div.modal div.form form#new_card').on("submit", function(event){
+	    var form = $('div.modal div.form form#new_card');
+
+	    $(form).submit(function(event){
 	        event.preventDefault();
-	        Card.submitForm(this);
+	        var formData = $(form).serialize();
+	        Card.submitForm(formData);
 	    });
 	})
 } 
@@ -68,9 +71,7 @@ Card.showFormModal = function(){
    $('div#newCardForm')[0].style.display = "block"
 };
 
-Card.submitForm = function(form){
-    
-};
+
 
 $(function(){
     Card.modalTemplateSource = $('#cardModalTemplate').html();
