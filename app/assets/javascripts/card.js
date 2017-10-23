@@ -56,11 +56,20 @@ Card.getNewFormFields = function(linkNode){
 	})
 	.success(function(data){ 
 	    $('div#newCardForm div.card-form-content span.close').after(data)
+
+	    $('div.modal div.form form#new_card').on("submit", function(event){
+	        event.preventDefault();
+	        Card.submitForm(this);
+	    });
 	})
 } 
 
 Card.showFormModal = function(){
-   $('#newCardForm')[0].style.display = "block"
+   $('div#newCardForm')[0].style.display = "block"
+};
+
+Card.submitForm = function(form){
+    
 };
 
 $(function(){
@@ -78,7 +87,7 @@ $(function(){
 
 	$('div.admin_section #admin_creat_new_card').on("click", function(event){
 		event.preventDefault();
-		var formExsits = $('div.form form#new_card').length;
+		var formExsits = $('div.modal div.form form#new_card').length;
 		if (formExsits){
             Card.showFormModal();
 		}else{
