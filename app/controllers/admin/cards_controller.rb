@@ -8,6 +8,11 @@ class Admin::CardsController < ApplicationController
 
 	def new
 		@card = Card.new
+        render "admin/cards/new.html.erb", :layout => false 
+        # respond_to do |format|
+        #     format.html { @card }
+        #     format.json { } 
+        # end
 	end
 
 	def edit
