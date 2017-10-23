@@ -54,6 +54,9 @@ Card.renderFormModal = function(){
     $('#main_page').append(formTemplate);
 };
 
+Card.showFormModal = function(){
+  $('#newCardForm')[0].style.display = "block"
+};
 
 $(function(){
     Card.modalTemplateSource = $('#cardModalTemplate').html();
@@ -74,6 +77,7 @@ $(function(){
 	$('div.admin_section #admin_creat_new_card').on("click", function(event){
 		event.preventDefault();
 		Card.renderFormModal();
+		Card.showFormModal();
 	});
 })
 
