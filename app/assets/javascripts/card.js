@@ -49,21 +49,23 @@ function closeModal(card){
 	card.parentElement.parentElement.style.display = "none"
 };
 
-Card.renderFormModal = function(){
-	var formTemplate = Card.formModalTemplate({name: "cardNewForm"});
-    $('#main_page').append(formTemplate);
-};
+Card.getNewFormFields = function(linkNode){
+	$.ajax({
+		url: linkNode.href,
+		method: "GET",
+	})
+	.success(function(data){ 
+	    $('div#newCardForm div.card-form-content span.close').after(data)
+	})
+} 
 
 Card.showFormModal = function(){
-  $('#newCardForm')[0].style.display = "block"
+   $('#newCardForm')[0].style.display = "block"
 };
 
 $(function(){
     Card.modalTemplateSource = $('#cardModalTemplate').html();
     Card.modalTemplate = Handlebars.compile(Card.modalTemplateSource); 
-    
-    Card.modalFormTemplateSource = $('#newCardFormModalTemplate').html();
-    Card.formModalTemplate = Handlebars.compile(Card.modalFormTemplateSource)
 
 	$('a.card_name').on("click", function(event){
 		event.preventDefault();
@@ -76,8 +78,13 @@ $(function(){
 
 	$('div.admin_section #admin_creat_new_card').on("click", function(event){
 		event.preventDefault();
-		Card.renderFormModal();
-		Card.showFormModal();
+		var formExsits = $('div.form form#new_card').length;
+		if (formExsits){
+            Card.showFormModal();
+		}else{
+			Card.getNewFormFields(this);
+			Card.showFormModal();
+		}
 	});
 })
 
