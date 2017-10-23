@@ -71,7 +71,21 @@ Card.showFormModal = function(){
    $('div#newCardForm')[0].style.display = "block"
 };
 
-
+Card.submitForm = function(formParams){
+   $.ajax({
+       url: "admin/cards",
+       method: "POST",
+       data: formParams,
+       dataType: "json"
+   })
+   .success(function(data){
+       var newCard = Card.makeCard(data)
+       var cardModal = newCard.renderModal() 
+       $('#main_page').append(cardModal);
+       $('div#newCardForm div.card-form-content form#new_card')[0].style.display = "none"
+       newCard.showCard();
+   })
+};
 
 $(function(){
     Card.modalTemplateSource = $('#cardModalTemplate').html();
