@@ -107,7 +107,3 @@ $(function(){
 		Card.showFormModal();
 	});
 })
-
-
-
-
