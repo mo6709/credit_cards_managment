@@ -55,8 +55,9 @@ Card.getNewFormFields = function(linkNode){
 		method: "GET",
 	})
 	.success(function(data){ 
-	    $('div#newCardForm div.card-form-content span.close').after(data)
-
+	    $('div#newCardForm div.card-form-content').html(data);
+        $('div#newCardForm div.card-form-content').prepend(`<span class="close" onclick="closeModal(this)">&times;</span>`);
+	    
 	    var form = $('div.modal div.form form#new_card');
 
 	    $(form).submit(function(event){
