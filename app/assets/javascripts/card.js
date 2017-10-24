@@ -79,11 +79,11 @@ Card.submitForm = function(formParams){
        dataType: "json"
    })
    .success(function(data){
-       var newCard = Card.makeCard(data)
-       var cardModal = newCard.renderModal() 
+       var newCard = Card.makeCard(data);
+       $('div#newCardForm')[0].style.display = "none";
+       var cardModal = newCard.renderModal(); 
        $('#main_page').append(cardModal);
-       $('div#newCardForm div.card-form-content form#new_card')[0].style.display = "none"
-       newCard.showCard();
+       newCard.showCard();       
    })
 };
 
