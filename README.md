@@ -7,7 +7,7 @@ Credit Cards Managment wiil help you track your cards and their due dates, you c
 
 ## Live Version
 
- http://credit-card-managment-app.herokuapp.com
+ https://credit-card-managment-app.herokuapp.com
 
 ## Development
 
