@@ -2,7 +2,7 @@
 
 Welcome to Credit Cards Managment  
 
-Credit Cards Managment wiil help you to track of your cards and their due dates, you can create new accounts and keep track of them. The application also provide the a collection of recommended cards. You can choos cards from a different collection acording to your needs i.e different bank, different corporations, and spending categories. New you can signup with google, no need to memoris more credentials and maintain them. 
+Credit Cards Managment wiil help you track your cards and their due dates, you can create new accounts and keep track them. The application provides a collection of recommended credit cards. You can choose cards from different collection acording to your needs i.e different banks, corporations, and spending categories. Now you can signup with google, no need to memorised credentials and maintain them. 
 
 
 ## Live Version
@@ -12,7 +12,7 @@ Credit Cards Managment wiil help you to track of your cards and their due dates,
 ## Development
 
 Clone this repo.
-After checking out the repo, run `bundle` to install dependencies. Then, run `rails server` to run the application locally. 
+After checking out the repo, run `bundle` to install dependencies then, run `rails server` to run the application locally. 
 
 
 ## Contributing
